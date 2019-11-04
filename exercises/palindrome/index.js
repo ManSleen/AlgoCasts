@@ -7,9 +7,17 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
+// Solution 1: split, reverse, join string and compare to original string
+// function palindrome(str) {
+//     const reversed = str.split("").reverse().join("")
+//     return str === reversed;
+// }
+
+// Solution 2: Use array method "every()" to check if each character's corresponding character matches
+// Note: This isnt the most efficient solution since it checks both halves of the string, it only really needs to check half
 function palindrome(str) {
-    const reversed = str.split("").reverse().join("")
-    return str === reversed;
+    const checkCharacter = str.split("").every((char, index) => char === str[(str.length - index) - 1]);
+    return checkCharacter;
 }
 
 module.exports = palindrome;
